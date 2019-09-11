@@ -16,20 +16,17 @@ import {
 
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs"
 import strings from "../resources/strings";
-import Dashboard from "./Dashboard/Dashboard";
 
 import Products_Panel from "./Dashboard/Products/Products_Panel"
 import Product_detail from "./Dashboard/Products/Product_detail"
 import Search_Setting from "./Dashboard/Products/Search_Setting"
 import Home_Panel from "./Dashboard/Home_Panel";
+import Login from "./Login"
 import dimens from "../resources/dimens.js";
 import colors from "../resources/colors.js";
-import { fromLeft, zoomIn, zoomOut, fadeIn, flipY } from 'react-navigation-transitions'
+import { fromLeft, zoomIn, zoomOut, fadeIn, flipY, fadeOut } from 'react-navigation-transitions'
 
 const store = configureStore();
-const Routes = {
-  Dashboard: { screen: Dashboard }
-};
 
 const handleCustomTransition = ({ scenes }) => {
   const prevScene = scenes[scenes.length - 2];
@@ -141,15 +138,16 @@ const AppNavigator = createMaterialBottomTabNavigator(
 const InitialNavigator = createStackNavigator(
   {
     // Splash: SplashScreen,
+    Login: Login,
     App: AppNavigator
   }, {
-    headerMode: 'none',
-    navigationOptions: {
-      header: null,
-      headerVisible: false,
-    },
-    transitionConfig: (nav) => handleCustomTransition(nav)
-  });
+  headerMode: 'none',
+  navigationOptions: {
+    header: null,
+    headerVisible: false,
+  },
+  transitionConfig: (nav) => zoomIn()
+});
 
 // const Navigator = createStackNavigator(Routes, {
 //   headerMode: 'screen',
