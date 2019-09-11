@@ -63,7 +63,7 @@ export class Login extends Component {
                     </View>
                     <TouchableOpacity activeOpacity={0.7}
                         style={homeStyles.loginBtn}
-                        onPress={() => { this.props.navigation.navigate("App") }}>
+                        onPress={() => { this.props.navigation.navigate("Dashboard") }}>
                         <Text
                             style={homeStyles.loginBtnTxt}>Login</Text>
                     </TouchableOpacity>

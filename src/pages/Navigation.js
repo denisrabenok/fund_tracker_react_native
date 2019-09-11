@@ -11,12 +11,12 @@ import {
   createStackNavigator,
   createAppContainer,
   createSwitchNavigator,
-  createBottomTabNavigator
+  createDrawerNavigator,
 } from "react-navigation";
 
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs"
 import strings from "../resources/strings";
-
+import SideBar from "../components/SideBar"
 import Products_Panel from "./Dashboard/Products/Products_Panel"
 import Product_detail from "./Dashboard/Products/Product_detail"
 import Search_Setting from "./Dashboard/Products/Search_Setting"
@@ -50,12 +50,11 @@ const handleCustomTransition = ({ scenes }) => {
   return flipY();
 }
 
-const ProductsNavigator = createStackNavigator(
-  {
-    Products_Panel: Products_Panel,
-    Product_detail: Product_detail,
-    Search_Setting: Search_Setting
-  },
+const ProductsNavigator = createStackNavigator({
+  Products_Panel: Products_Panel,
+  Product_detail: Product_detail,
+  Search_Setting: Search_Setting
+},
   {
     headerMode: 'none',
     navigationOptions: {
@@ -65,49 +64,48 @@ const ProductsNavigator = createStackNavigator(
     transitionConfig: (nav) => handleCustomTransition(nav)
   });
 
-const AppNavigator = createMaterialBottomTabNavigator(
-  {
-    Home: {
-      screen: Home_Panel,
-      navigationOptions: {
-        tabBarLabel: strings.HOME,
-        tabBarIcon: ({ horizontal, tintColor }) =>
-          <Icon_Entypo name="home" size={horizontal ? 15 : 20} color={tintColor} />
-      }
-    },
-    Products: {
-      screen: ProductsNavigator,
-      navigationOptions: {
-        tabBarLabel: strings.PRODUCTS,
-        tabBarIcon: ({ horizontal, tintColor }) =>
-          <Icon_FontAwesome5 name="layer-group" size={horizontal ? 13 : 17} color={tintColor} />
-      }
-    },
-    Trades: {
-      screen: Home_Panel,
-      navigationOptions: {
-        tabBarLabel: strings.TRADES,
-        tabBarIcon: ({ horizontal, tintColor }) =>
-          <Icon_MaterialIcons name="pie-chart" size={horizontal ? 15 : 20} color={tintColor} />
-      }
-    },
-    Reports: {
-      screen: Home_Panel,
-      navigationOptions: {
-        tabBarLabel: strings.REPORTS,
-        tabBarIcon: ({ horizontal, tintColor }) =>
-          <Icon_Foundation name="video" size={horizontal ? 15 : 20} color={tintColor} />
-      }
-    },
-    Settings: {
-      screen: Home_Panel,
-      navigationOptions: {
-        tabBarLabel: strings.SETTINGS,
-        tabBarIcon: ({ horizontal, tintColor }) =>
-          <Icon_MaterialCommunity name="settings" size={horizontal ? 15 : 20} color={tintColor} />
-      }
+const DashboardNavigator = createMaterialBottomTabNavigator({
+  Home: {
+    screen: Home_Panel,
+    navigationOptions: {
+      tabBarLabel: strings.HOME,
+      tabBarIcon: ({ horizontal, tintColor }) =>
+        <Icon_Entypo name="home" size={horizontal ? 15 : 20} color={tintColor} />
     }
   },
+  Products: {
+    screen: ProductsNavigator,
+    navigationOptions: {
+      tabBarLabel: strings.PRODUCTS,
+      tabBarIcon: ({ horizontal, tintColor }) =>
+        <Icon_FontAwesome5 name="layer-group" size={horizontal ? 13 : 17} color={tintColor} />
+    }
+  },
+  Trades: {
+    screen: Home_Panel,
+    navigationOptions: {
+      tabBarLabel: strings.TRADES,
+      tabBarIcon: ({ horizontal, tintColor }) =>
+        <Icon_MaterialIcons name="pie-chart" size={horizontal ? 15 : 20} color={tintColor} />
+    }
+  },
+  Reports: {
+    screen: Home_Panel,
+    navigationOptions: {
+      tabBarLabel: strings.REPORTS,
+      tabBarIcon: ({ horizontal, tintColor }) =>
+        <Icon_Foundation name="video" size={horizontal ? 15 : 20} color={tintColor} />
+    }
+  },
+  Settings: {
+    screen: Home_Panel,
+    navigationOptions: {
+      tabBarLabel: strings.SETTINGS,
+      tabBarIcon: ({ horizontal, tintColor }) =>
+        <Icon_MaterialCommunity name="settings" size={horizontal ? 15 : 20} color={tintColor} />
+    }
+  }
+},
   {
     activeTintColor: colors.primaryColor,
     barStyle: {
@@ -135,9 +133,16 @@ const AppNavigator = createMaterialBottomTabNavigator(
     }
   });
 
+const AppNavigator = createDrawerNavigator({
+  Dashboard: { screen: DashboardNavigator }
+}, {
+  contentComponent: SideBar,
+  overlayColor: "#00000099",
+  drawerType: "slide"
+})
+
 const InitialNavigator = createStackNavigator(
   {
-    // Splash: SplashScreen,
     Login: Login,
     App: AppNavigator
   }, {
@@ -146,13 +151,8 @@ const InitialNavigator = createStackNavigator(
     header: null,
     headerVisible: false,
   },
-  transitionConfig: (nav) => zoomIn()
+  transitionConfig: (nav) => fromLeft()
 });
-
-// const Navigator = createStackNavigator(Routes, {
-//   headerMode: 'screen',
-//   headerLayoutPreset: 'center'
-// });
 
 const App = createAppContainer(InitialNavigator);
 

@@ -63,8 +63,9 @@ export class Home_Panel extends Component {
                         flexDirection: 'row',
                         alignItems: 'center'
                     }}>
-                    <TouchableOpacity style={styles.headerLeftButton}>
-                        <Icon name='navicon' style={styles.headerLeftButtonIcon}/>
+                    <TouchableOpacity style={styles.headerLeftButton}
+                        onPress={() => this.props.navigation.openDrawer()}>
+                        <Icon name='navicon' style={styles.headerLeftButtonIcon} />
                     </TouchableOpacity>
                     <Text style={styles.headerTitle}>{strings.FUND_TRACKER}</Text>
                 </Header>

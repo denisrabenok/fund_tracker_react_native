@@ -328,7 +328,8 @@ export class Products_Panel extends Component {
             <Container style={{ backgroundColor: colors.containerColor }}>
                 <StatusBar backgroundColor={colors.navBarColor} barStyle="light-content" />
                 <Header style={{ backgroundColor: colors.navBarColor, flexDirection: 'row', alignItems: 'center' }}>
-                    <TouchableOpacity style={styles.headerLeftButton}>
+                    <TouchableOpacity style={styles.headerLeftButton}
+                        onPress={() => this.props.navigation.openDrawer()}>
                         <Icon name='navicon' style={styles.headerLeftButtonIcon} />
                     </TouchableOpacity>
                     <Text style={styles.headerTitle}>{strings.FUND_TRACKER}</Text>
