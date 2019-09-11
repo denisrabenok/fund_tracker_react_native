@@ -558,7 +558,7 @@ const productsStyles = {
     },
     expand_img_container: {
         width: '20%',
-        alignSelf: 'baseline',
+        // alignSelf: 'baseline',
         padding: 1
     },
     expand_desc_container: {
