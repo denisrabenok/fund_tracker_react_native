@@ -2,7 +2,7 @@
 
 // noinspection JSUnresolvedVariable
 import React from "react";
-import { View, Alert, Image, Dimensions, TouchableOpacity, Text } from "react-native";
+import { View, Alert, Image, Dimensions, TouchableOpacity, Text, Platform } from "react-native";
 import { connect } from "react-redux";
 import person_placeholder from "../assets/person_placeholder.jpg"
 import Icon_FontAwesome from 'react-native-vector-icons/FontAwesome'
@@ -29,7 +29,7 @@ class SideBar extends React.Component {
             height: width / 4,
             resizeMode: 'cover',
             borderRadius: width / 8,
-            marginTop: 20,
+            marginTop: Platform.OS === 'ios' ? 50 : 20,
             borderWidth: 2,
             borderColor: colors.secondaryColor
           }} />
