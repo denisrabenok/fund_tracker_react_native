@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/EvilIcons'
 import Icon_Foundation from 'react-native-vector-icons/Foundation'
 import Icon_Entypo from 'react-native-vector-icons/Entypo'
 import Icon_AntDesign from 'react-native-vector-icons/AntDesign'
+import Share from 'react-native-share';
 import Icon_MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { OffCanvas3D } from 'react-native-off-canvas-menu'
 import { connect } from "react-redux";
@@ -129,7 +130,13 @@ export class Products_Panel extends Component {
                 return "green";
         }
     }
-    onPressItemShare = (item) => { }
+    onPressItemShare = (item) => {
+        const shareOptions = {
+            title: 'Share via',
+            message: item.ticker // country code + phone number(currently only works on Android)
+        };
+        Share.open(shareOptions);
+     }
     onPressItemLike = (item) => {
         let tickers = this.state.likedTickers;
         let found = false;

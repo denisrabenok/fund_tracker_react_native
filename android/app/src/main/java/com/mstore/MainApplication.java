@@ -11,6 +11,8 @@ import com.reactnativecomponent.splashscreen.RCTSplashScreenPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+import cl.json.RNSharePackage;
+import cl.json.ShareApplication;
 
 import java.util.List;
 
