@@ -5,9 +5,13 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* mstoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* mstoreTests.m */; };
 		018DE2DBE7934F479AC5B909 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70B6F93C9F2B40029D9A023D /* SimpleLineIcons.ttf */; };
+		071A6CF8232A64770005C853 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 071A6CF7232A64600005C853 /* libRNShare.a */; };
+		071A6CFA232A64B80005C853 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071A6CF9232A64B80005C853 /* Social.framework */; };
+		071A6CFC232A64CB0005C853 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071A6CFB232A64CB0005C853 /* MessageUI.framework */; };
 		075F3AA62326D69200A06D24 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075F3A612326D59C00A06D24 /* libRCTBlob.a */; };
 		075F3AA72326D6A600A06D24 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075F3A1F2326D54600A06D24 /* libRCTAnimation.a */; };
 		075F3AA82326D6CC00A06D24 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075F3A362326D57800A06D24 /* libReact.a */; };
@@ -57,6 +61,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = mstore;
+		};
+		071A6CF6232A64600005C853 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 071A6CCD232A64600005C853 /* RNShare.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNShare;
 		};
 		075F3A1E2326D54600A06D24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -331,6 +342,9 @@
 		00E356EE1AD99517003FC87E /* mstoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mstoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* mstoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mstoreTests.m; sourceTree = "<group>"; };
+		071A6CCD232A64600005C853 /* RNShare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
+		071A6CF9232A64B80005C853 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		071A6CFB232A64CB0005C853 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		075F3A192326D54600A06D24 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		075F3A222326D57800A06D24 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		075F3A552326D59100A06D24 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
@@ -388,6 +402,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				071A6CFC232A64CB0005C853 /* MessageUI.framework in Frameworks */,
+				071A6CFA232A64B80005C853 /* Social.framework in Frameworks */,
+				071A6CF8232A64770005C853 /* libRNShare.a in Frameworks */,
 				075F3ABE2326DC1200A06D24 /* libRNGestureHandler.a in Frameworks */,
 				075F3AB42326DA9A00A06D24 /* JavaScriptCore.framework in Frameworks */,
 				075F3AB12326D73100A06D24 /* libRCTSplashScreen.a in Frameworks */,
@@ -437,6 +454,14 @@
 				00E356F11AD99517003FC87E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		071A6CCE232A64600005C853 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				071A6CF7232A64600005C853 /* libRNShare.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		075F3A1A2326D54600A06D24 /* Products */ = {
@@ -585,6 +610,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				071A6CFB232A64CB0005C853 /* MessageUI.framework */,
+				071A6CF9232A64B80005C853 /* Social.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 			);
@@ -619,6 +646,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				071A6CCD232A64600005C853 /* RNShare.xcodeproj */,
 				075F3AB52326DBFE00A06D24 /* RNGestureHandler.xcodeproj */,
 				075F3AA02326D64300A06D24 /* RCTSplashScreen.xcodeproj */,
 				075F3A972326D60800A06D24 /* RCTWebSocket.xcodeproj */,
@@ -828,6 +856,10 @@
 					ProductGroup = 075F3AB62326DBFE00A06D24 /* Products */;
 					ProjectRef = 075F3AB52326DBFE00A06D24 /* RNGestureHandler.xcodeproj */;
 				},
+				{
+					ProductGroup = 071A6CCE232A64600005C853 /* Products */;
+					ProjectRef = 071A6CCD232A64600005C853 /* RNShare.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -840,6 +872,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		071A6CF7232A64600005C853 /* libRNShare.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNShare.a;
+			remoteRef = 071A6CF6232A64600005C853 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		075F3A1F2326D54600A06D24 /* libRCTAnimation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
