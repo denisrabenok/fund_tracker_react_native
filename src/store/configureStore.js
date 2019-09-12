@@ -20,6 +20,7 @@ const combinedReducers = combineReducers({
 const initialState = new Immutable.Map({
     dashboard: Immutable.Map({
         productCount: 0,
+        sortedProductCount: 0,
         shortList: [],
         list: []
     }),

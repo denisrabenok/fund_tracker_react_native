@@ -13,6 +13,20 @@ export function setProductCount(cnt) {
     }
 }
 
+export function getSortedProductCount(display_mode) {
+    return {
+        type: actions.GET_SORTED_PRODUCT_COUNT,
+        display_mode: display_mode
+    }
+}
+
+export function setSortedProductCount(cnt) {
+    return {
+        type: actions.SET_SORTED_PRODUCT_COUNT,
+        sortedProductCount: cnt
+    }
+}
+
 export function getShortList() {
     return {
         type: actions.GET_SHORT_LIST,

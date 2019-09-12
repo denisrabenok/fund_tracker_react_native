@@ -9,7 +9,10 @@ export default function dashboardReducer(state, action = {}) {
             });
         case actions.SET_PRODUCT_COUNT:
             return state.withMutations(state => state
-                .set('productCount', action.productCount))
+                .set('productCount', action.productCount));
+        case actions.SET_SORTED_PRODUCT_COUNT:
+            return state.withMutations(state => state
+                .set('sortedProductCount', action.sortedProductCount));
         case actions.SET_SHORT_LIST:
             return state.withMutations(state => {
                 let shortList = state.get('shortList');

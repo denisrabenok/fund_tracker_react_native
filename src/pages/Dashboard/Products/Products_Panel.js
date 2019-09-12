@@ -52,6 +52,7 @@ export class Products_Panel extends Component {
         this.setState({ likedTickers: tickers });
         this.props.dispatch(rootActions.setLoading(true));
         setTimeout(() => {
+            this.props.dispatch(dashboardActions.getSortedProductCount(this.state.display_mode));
             this.props.dispatch(dashboardActions.getList(this.state.currentPageIndex, this.state.display_mode, this.state.search))
         }, 1000);
     }
@@ -67,6 +68,7 @@ export class Products_Panel extends Component {
         this.props.dispatch(rootActions.setLoading(true));
         this.setState({ display_mode: display_mode, isSortPopupOpen: false }, () => {
             this.props.dispatch(dashboardActions.setList([]));
+            this.props.dispatch(dashboardActions.getSortedProductCount(this.state.display_mode));
             this.props.dispatch(dashboardActions.getList(this.state.currentPageIndex, this.state.display_mode, this.state.search))
         });
     }
@@ -127,7 +129,7 @@ export class Products_Panel extends Component {
                 return "green";
         }
     }
-
+    onPressItemShare = (item) => { }
     onPressItemLike = (item) => {
         let tickers = this.state.likedTickers;
         let found = false;
@@ -212,8 +214,8 @@ export class Products_Panel extends Component {
                 :
                 <SwipeRow
                     key={data.index}
-                    stopRightSwipe={-50}
-                    rightOpenValue={-50}>
+                    stopRightSwipe={-100}
+                    rightOpenValue={-100}>
                     <View
                         style={{
                             width: 100,
@@ -231,7 +233,8 @@ export class Products_Panel extends Component {
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 backgroundColor: colors.navBarColor
-                            }}>
+                            }}
+                            onPress={() => this.onPressItemShare(data.item)}>
                             <Icon_MaterialCommunityIcons name="hexagon"
                                 style={{
                                     fontSize: dimens.font_size_extra_large,
@@ -375,7 +378,7 @@ export class Products_Panel extends Component {
                             </View>
                             <View style={productsStyles.subTitleContainer}>
                                 <Text style={productsStyles.subTitle}>{this.getSortStr()}</Text>
-                                <Text style={productsStyles.subTitle}>{this.props.dashboard.get("productCount")} {strings.RECORDS}</Text>
+                                <Text style={productsStyles.subTitle}>{this.props.dashboard.get("sortedProductCount")} {strings.RECORDS}</Text>
                             </View>
                             <View style={productsStyles.searchContainer}>
                                 <TextInput
