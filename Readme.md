@@ -1,3 +1,8 @@
+First need to install node_modules
+you can use below commands
+npm install
+or yarn install
+
 1. Android
   react-native run-android in command prompt
  
